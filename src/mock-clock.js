@@ -9,11 +9,13 @@ export function createMockClock(initial) {
       return new Date(currentTime);
     },
     setTimeout(callback, ms, ...args) {
-      timeouts.push({
-        triggerTime: currentTime + ms,
-        callback,
-        args,
-      });
+      const triggerTime = currentTime + ms;
+      const insertIndex = timeouts.findIndex(t => t.triggerTime > triggerTime);
+      timeouts.splice(
+        insertIndex > -1 ? insertIndex : timeouts.length,
+        0,
+        { triggerTime, callback, args },
+      );
     },
     clearTimeout(t) {
     },
