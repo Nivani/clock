@@ -23,12 +23,11 @@ export function createMockClock(initial) {
     clearTimeout(timeoutId) {
       timeouts = timeouts.filter(({ id }) => id === timeoutId)
     },
-    setInterval(handler, ms, ...args) {
+    setInterval(/*handler, ms, ...args*/) {
     },
-    clearInterval(i) {
+    clearInterval(/*intervalId*/) {
     },
-    set(date) {
-
+    set(/*date*/) {
     },
     add(ms) {
       currentTime = currentTime + ms;
