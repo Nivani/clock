@@ -1,7 +1,8 @@
 export function createMockClock(initial) {
   let currentTime = new Date(initial).getTime();
-  let timeouts = [];
   let idCounter = 0;
+  let timeouts = [];
+  let intervals = [];
 
   return {
     now() {
@@ -23,21 +24,43 @@ export function createMockClock(initial) {
     clearTimeout(timeoutId) {
       timeouts = timeouts.filter(({ id }) => id === timeoutId)
     },
-    setInterval(/*handler, ms, ...args*/) {
+    setInterval(callback, ms, ...args) {
+      const id = idCounter++;
+      const nextTriggerTime = currentTime + ms;
+      const interval = { id, nextTriggerTime, ms, callback, args };
+      insertInterval(interval);
     },
     clearInterval(/*intervalId*/) {
     },
-    set(/*date*/) {
-    },
     add(ms) {
       currentTime = currentTime + ms;
-      const remainingTimeouts = timeouts.filter(timeout => timeout.triggerTime > currentTime);
-      timeouts.forEach(timeout => {
-        if (!remainingTimeouts.includes(timeout)) {
-          timeout.callback(...timeout.args);
-        }
-      });
-      timeouts = remainingTimeouts;
+      runTimeouts();
+      runIntervals();
     },
   };
+
+  function runTimeouts() {
+    while (timeouts.length > 0 && timeouts[0].triggerTime <= currentTime) {
+      const timeout = timeouts.shift();
+      timeout.callback(...timeout.args);
+    }
+  }
+
+  function runIntervals() {
+    while (intervals.length > 0 && intervals[0].nextTriggerTime <= currentTime) {
+      const interval = intervals.shift();
+      interval.callback(...interval.args);
+      interval.nextTriggerTime += interval.ms;
+      insertInterval(interval);
+    }
+  }
+
+  function insertInterval(interval) {
+    const insertIndex = intervals.findIndex(({ nextTriggerTime }) => nextTriggerTime > interval.nextTriggerTime);
+    intervals.splice(
+      insertIndex > -1 ? insertIndex : intervals.length,
+      0,
+      interval,
+    );
+  }
 }
