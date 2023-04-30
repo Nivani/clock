@@ -41,5 +41,18 @@ describe("MockClock", () => {
       expect(fn2).toHaveBeenCalledTimes(1);
       expect(fn2.mock.results[0].value).toBeLessThan(fn1.mock.results[0].value);
     });
+
+    test("doesn't run callback when timeout is cleared", () => {
+      const clock = createMockClock("2023-04-30T22:00:00Z");
+
+      const fn = vi.fn().mockName("callback");
+      const id = clock.setTimeout(fn, 250);
+
+      clock.add(200);
+      clock.clearTimeout(id);
+      clock.add(100);
+
+      expect(fn).not.toHaveBeenCalled();
+    });
   });
 });

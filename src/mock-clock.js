@@ -1,6 +1,8 @@
 export function createMockClock(initial) {
   let currentTime = new Date(initial).getTime();
   let timeouts = [];
+  let idCounter = 0;
+
   return {
     now() {
       return currentTime;
@@ -9,15 +11,17 @@ export function createMockClock(initial) {
       return new Date(currentTime);
     },
     setTimeout(callback, ms, ...args) {
+      const id = idCounter++;
       const triggerTime = currentTime + ms;
       const insertIndex = timeouts.findIndex(t => t.triggerTime > triggerTime);
       timeouts.splice(
         insertIndex > -1 ? insertIndex : timeouts.length,
         0,
-        { triggerTime, callback, args },
+        { id, triggerTime, callback, args },
       );
     },
-    clearTimeout(t) {
+    clearTimeout(timeoutId) {
+      timeouts = timeouts.filter(({ id }) => id === timeoutId)
     },
     setInterval(handler, ms, ...args) {
     },
