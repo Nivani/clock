@@ -3,11 +3,11 @@ export function createClock(): Clock;
 export interface Clock {
   now(): number;
   newDate(): Date;
-  setTimeout(): Timeout;
-  clearTimeout(t: Timeout): void;
-  setInterval(): Interval;
-  clearInterval(i: Interval): void;
+  setTimeout(callback: () => void, ms: number): TimeoutID;
+  clearTimeout(id: TimeoutID): void;
+  setInterval(callback: () => void, ms: number): IntervalID;
+  clearInterval(id: IntervalID): void;
 }
 
-export type Timeout = any;
-export type Interval = any;
+export type TimeoutID = number;
+export type IntervalID = number;
