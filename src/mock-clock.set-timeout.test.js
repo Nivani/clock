@@ -45,14 +45,17 @@ describe("MockClock", () => {
     test("doesn't run callback when timeout is cleared", () => {
       const clock = createMockClock("2023-04-30T22:00:00Z");
 
-      const fn = vi.fn().mockName("callback");
-      const id = clock.setTimeout(fn, 250);
+      const fn1 = vi.fn().mockName("callback 1");
+      const id1 = clock.setTimeout(fn1, 250);
+      const fn2 = vi.fn().mockName("callback 2");
+      clock.setTimeout(fn2, 250);
 
       clock.add(200);
-      clock.clearTimeout(id);
+      clock.clearTimeout(id1);
       clock.add(100);
 
-      expect(fn).not.toHaveBeenCalled();
+      expect(fn1).not.toHaveBeenCalled();
+      expect(fn2).toHaveBeenCalled();
     });
   });
 });

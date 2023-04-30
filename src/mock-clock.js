@@ -20,9 +20,10 @@ export function createMockClock(initial) {
         0,
         { id, triggerTime, callback, args },
       );
+      return id;
     },
     clearTimeout(timeoutId) {
-      timeouts = timeouts.filter(({ id }) => id === timeoutId)
+      timeouts = timeouts.filter(({ id }) => id !== timeoutId)
     },
     setInterval(callback, ms, ...args) {
       const id = idCounter++;
