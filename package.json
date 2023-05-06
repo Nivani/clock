@@ -5,7 +5,7 @@
   "scripts": {
     "test": "vitest",
     "lint": "eslint ./src",
-    "check-format": "prettier --check src/"
+    "check-format": "prettier --check ./src"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "ISC",
