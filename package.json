@@ -4,12 +4,14 @@
   "description": "A small library without dependencies for mocking time in Javascript",
   "scripts": {
     "test": "vitest",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "check-format": "prettier --check src/"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.39.0",
+    "prettier": "^2.8.8",
     "vitest": "^0.29.8"
   }
 }

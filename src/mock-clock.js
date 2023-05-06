@@ -14,12 +14,15 @@ export function createMockClock(initial) {
     setTimeout(callback, ms, ...args) {
       const id = idCounter++;
       const triggerTime = currentTime + ms;
-      const insertIndex = timeouts.findIndex(t => t.triggerTime > triggerTime);
-      timeouts.splice(
-        insertIndex > -1 ? insertIndex : timeouts.length,
-        0,
-        { id, triggerTime, callback, args },
+      const insertIndex = timeouts.findIndex(
+        (t) => t.triggerTime > triggerTime
       );
+      timeouts.splice(insertIndex > -1 ? insertIndex : timeouts.length, 0, {
+        id,
+        triggerTime,
+        callback,
+        args,
+      });
       return id;
     },
     clearTimeout(timeoutId) {
@@ -50,7 +53,10 @@ export function createMockClock(initial) {
   }
 
   function runIntervals() {
-    while (intervals.length > 0 && intervals[0].nextTriggerTime <= currentTime) {
+    while (
+      intervals.length > 0 &&
+      intervals[0].nextTriggerTime <= currentTime
+    ) {
       const interval = intervals.shift();
       interval.callback(...interval.args);
       interval.nextTriggerTime += interval.ms;
@@ -59,11 +65,13 @@ export function createMockClock(initial) {
   }
 
   function insertInterval(interval) {
-    const insertIndex = intervals.findIndex(({ nextTriggerTime }) => nextTriggerTime > interval.nextTriggerTime);
+    const insertIndex = intervals.findIndex(
+      ({ nextTriggerTime }) => nextTriggerTime > interval.nextTriggerTime
+    );
     intervals.splice(
       insertIndex > -1 ? insertIndex : intervals.length,
       0,
-      interval,
+      interval
     );
   }
 }

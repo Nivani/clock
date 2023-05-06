@@ -7,7 +7,7 @@ export function createClock() {
       return new Date(this.now());
     },
     setTimeout(callback, ms, ...args) {
-      return setTimeout(callback, ms, args)
+      return setTimeout(callback, ms, args);
     },
     clearTimeout(t) {
       clearTimeout(t);

@@ -26,11 +26,13 @@ describe("MockClock", () => {
       const clock = createMockClock("2023-04-08T23:00:00Z");
 
       let counter = 0;
-      const fn1 = vi.fn()
+      const fn1 = vi
+        .fn()
         .mockName("callback 1")
         .mockImplementation(() => counter++);
       clock.setTimeout(fn1, 300);
-      const fn2 = vi.fn()
+      const fn2 = vi
+        .fn()
         .mockName("callback 2")
         .mockImplementation(() => counter++);
       clock.setTimeout(fn2, 250);
