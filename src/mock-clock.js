@@ -23,15 +23,17 @@ export function createMockClock(initial) {
       return id;
     },
     clearTimeout(timeoutId) {
-      timeouts = timeouts.filter(({ id }) => id !== timeoutId)
+      timeouts = timeouts.filter(({ id }) => id !== timeoutId);
     },
     setInterval(callback, ms, ...args) {
       const id = idCounter++;
       const nextTriggerTime = currentTime + ms;
       const interval = { id, nextTriggerTime, ms, callback, args };
       insertInterval(interval);
+      return id;
     },
-    clearInterval(/*intervalId*/) {
+    clearInterval(intervalId) {
+      intervals = intervals.filter(({ id }) => id !== intervalId);
     },
     add(ms) {
       currentTime = currentTime + ms;

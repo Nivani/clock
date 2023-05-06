@@ -65,5 +65,25 @@ describe("MockClock", () => {
       expect(fn2).toHaveBeenCalledTimes(3);
       expect(fn1.mock.results[1].value).toBeLessThan(fn2.mock.results[2].value);
     });
+
+    test("stops running callback when interval is cleared", () => {
+      const clock = createMockClock("2023-04-30T22:00:00Z");
+
+      const fn1 = vi.fn().mockName("callback 1");
+      const fn2 = vi.fn().mockName("callback 2");
+      const id = clock.setInterval(fn1, 250);
+      clock.setInterval(fn2, 250);
+
+      clock.add(750);
+
+      expect(fn1).toHaveBeenCalledTimes(3);
+      expect(fn2).toHaveBeenCalledTimes(3);
+
+      clock.clearInterval(id);
+      clock.add(1000);
+
+      expect(fn1).toHaveBeenCalledTimes(3);
+      expect(fn2).toHaveBeenCalledTimes(7);
+    });
   });
 });
