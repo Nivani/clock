@@ -39,9 +39,17 @@ export function createMockClock(initial) {
       intervals = intervals.filter(({ id }) => id !== intervalId);
     },
     add(ms) {
+      if (ms < 0) {
+        throw new Error("cannot move back in time");
+      }
+
       currentTime = currentTime + ms;
       runTimeouts();
       runIntervals();
+    },
+    goTo(newDate) {
+      const timeDiff = new Date(newDate).getTime() - currentTime;
+      this.add(timeDiff);
     },
   };
 
