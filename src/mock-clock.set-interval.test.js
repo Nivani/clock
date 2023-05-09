@@ -87,7 +87,7 @@ describe("MockClock", () => {
       expect(fn2).toHaveBeenCalledTimes(7);
     });
 
-    test("prevents running too many interval calls", () => {
+    test("prevents running too many callbacks", () => {
       const clock = createMockClock("2023-04-30T22:00:00Z");
 
       const fn = vi.fn().mockName("callback");
