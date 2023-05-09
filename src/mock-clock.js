@@ -1,3 +1,5 @@
+const MAX_INTERVAL_CALLBACKS = 10000;
+
 export function createMockClock(initial) {
   let currentTime = new Date(initial).getTime();
   let idCounter = 0;
@@ -61,6 +63,7 @@ export function createMockClock(initial) {
   }
 
   function runIntervals() {
+    let count = 0;
     while (
       intervals.length > 0 &&
       intervals[0].nextTriggerTime <= currentTime
@@ -69,6 +72,13 @@ export function createMockClock(initial) {
       interval.callback(...interval.args);
       interval.nextTriggerTime += interval.ms;
       insertInterval(interval);
+
+      count++;
+      if (count >= MAX_INTERVAL_CALLBACKS) {
+        throw new Error(
+          `Stopped calling setInterval() callbacks at ${count}. Did you move time foward by too much?`
+        );
+      }
     }
   }
 

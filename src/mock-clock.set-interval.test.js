@@ -86,5 +86,14 @@ describe("MockClock", () => {
       expect(fn1).toHaveBeenCalledTimes(3);
       expect(fn2).toHaveBeenCalledTimes(7);
     });
+
+    test("prevents running too many interval calls", () => {
+      const clock = createMockClock("2023-04-30T22:00:00Z");
+
+      const fn = vi.fn().mockName("callback");
+      clock.setInterval(fn, 250);
+
+      expect(() => clock.goTo("2024-04-30T22:00:00Z")).toThrow();
+    });
   });
 });
