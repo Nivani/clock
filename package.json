@@ -5,7 +5,8 @@
   "scripts": {
     "test": "vitest",
     "lint": "eslint ./src",
-    "check-format": "prettier --check ./src"
+    "check-format": "prettier --check ./src",
+    "verify": "npm run lint && npm run check-format && npm test -- --run"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "ISC",

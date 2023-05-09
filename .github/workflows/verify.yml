@@ -11,6 +11,4 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
     - run: npm ci
-    - run: npm run lint
-    - run: npm run check-format
-    - run: npm test
+    - run: npm run verify
