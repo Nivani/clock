@@ -15,6 +15,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Setup Node.js
       uses: actions/setup-node@v3
-    - run: npm ci
-    - run: echo "Verifying in timezone '$TZ'"
-    - run: npm run verify
+    - name: npm ci
+      run: npm ci
+    - name: npm run verify
+      run: |
+        echo "Verifying in timezone '$TZ'"
+        npm run verify
