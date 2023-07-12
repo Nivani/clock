@@ -17,4 +17,4 @@ export interface Clock {
 
 `Clock` gives you more control over time.
 
-Use `MockClock` in tests to have complete control over time or `WarpClock` in your application to time travel and speed up or slow down time (`WarpClock` is not implemented yet).
+Use `MockClock` in tests to have complete control over time or `WarpClock` in your application to time travel and speed up or slow down time.
