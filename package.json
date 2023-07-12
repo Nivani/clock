@@ -1,7 +1,13 @@
 {
-  "name": "clock",
+  "name": "@nvnh/clock",
   "version": "0.0.1",
   "description": "A small library without dependencies for mocking time in Javascript",
+  "files": [
+    "src/**/*"
+  ],
+  "exports": {
+    "./": "./src/"
+  },
   "scripts": {
     "test": "vitest",
     "lint": "eslint ./src",
@@ -9,11 +15,16 @@
     "verify": "npm run lint && npm run check-format && npm test -- --run"
   },
   "author": "Nick Van Nieuwenhuyse",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@vitest/coverage-istanbul": "^0.33.0",
     "eslint": "^8.44.0",
     "prettier": "^3.0.0",
     "vitest": "^0.33.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nivani/clock.git"
+  },
+  "homepage": "https://github.com/Nivani/clock#readme"
 }
