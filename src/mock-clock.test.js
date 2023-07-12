@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
-import { createMockClock } from "src/mock-clock";
+import { createMockClock } from "./mock-clock";
 
 describe("MockClock", () => {
   describe("newDate(), now()", () => {
