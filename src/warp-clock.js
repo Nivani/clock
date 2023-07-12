@@ -12,12 +12,10 @@ export function createWarpClock({ speed = 1.0, initial } = {}) {
     newDate() {
       return new Date(this.now());
     },
-    setTimeout(/*callback, ms*/) {
-      throw new Error("setTimeout() has not been implemented yet");
+    setTimeout(callback, ms) {
+      return setTimeout(callback, ms / speed);
     },
-    clearTimeout(/*id*/) {
-      throw new Error("clearTimeout() has not been implemented yet");
-    },
+    clearTimeout,
     setInterval(/*callback, ms*/) {
       throw new Error("setInterval() has not been implemented yet");
     },

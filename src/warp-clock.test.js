@@ -1,7 +1,9 @@
 import { describe, expect, test } from "vitest";
 import { createWarpClock } from "./warp-clock";
+import timeout from "./timeout";
+
 describe("WarpClock", () => {
-  describe("newDate(), now()", () => {
+  describe("setTimeout()", () => {
     test("warps time", async () => {
       const initialTime = new Date("2023-07-10T11:30:05Z").getTime();
 
@@ -17,9 +19,3 @@ describe("WarpClock", () => {
     });
   });
 });
-
-function timeout(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
