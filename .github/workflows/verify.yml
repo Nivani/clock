@@ -6,9 +6,15 @@ jobs:
   verify:
     name: Verify
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        timezone: [UTC, CET, Europe/Brussels, Asia/Shanghai]
+    env:
+      TZ: ${{ matrix.timezone }}
     steps:
     - uses: actions/checkout@v3
     - name: Setup Node.js
       uses: actions/setup-node@v3
     - run: npm ci
+    - run: echo "Verifying in timezone '$TZ'"
     - run: npm run verify
