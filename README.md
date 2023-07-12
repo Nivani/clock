@@ -2,7 +2,7 @@
 
 Clock is a small library without dependencies for mocking time in Javascript. It's inspired by [this Go clock package](https://pkg.go.dev/github.com/facebookgo/clock).
 
-It's very much like Javascript's Date & Time interface, so you can simply find and replace it in your existing code. The difference is that `Clock` gives you more control over time. 
+It resembles Javascript's Date & Time interface as closely as possible, so you can easily replace it in your existing code. 
 
 ```Typescript
 export interface Clock {
@@ -14,5 +14,7 @@ export interface Clock {
   clearInterval(id: IntervalID): void;
 }
 ```
+
+`Clock` gives you more control over time.
 
 Use `MockClock` in tests to have complete control over time or `WarpClock` in your application to time travel and speed up or slow down time (`WarpClock` is not implemented yet).

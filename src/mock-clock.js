@@ -17,7 +17,7 @@ export function createMockClock(initial) {
       const id = idCounter++;
       const triggerTime = currentTime + ms;
       const insertIndex = timeouts.findIndex(
-        (t) => t.triggerTime > triggerTime
+        (t) => t.triggerTime > triggerTime,
       );
       timeouts.splice(insertIndex > -1 ? insertIndex : timeouts.length, 0, {
         id,
@@ -76,7 +76,7 @@ export function createMockClock(initial) {
       count++;
       if (count >= MAX_INTERVAL_CALLBACKS) {
         throw new Error(
-          `Stopped calling setInterval() callbacks at ${count}. Did you move time foward by too much?`
+          `Stopped calling setInterval() callbacks at ${count}. Did you move time foward by too much?`,
         );
       }
     }
@@ -84,12 +84,12 @@ export function createMockClock(initial) {
 
   function insertInterval(interval) {
     const insertIndex = intervals.findIndex(
-      ({ nextTriggerTime }) => nextTriggerTime > interval.nextTriggerTime
+      ({ nextTriggerTime }) => nextTriggerTime > interval.nextTriggerTime,
     );
     intervals.splice(
       insertIndex > -1 ? insertIndex : intervals.length,
       0,
-      interval
+      interval,
     );
   }
 }
