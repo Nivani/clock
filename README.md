@@ -1,4 +1,4 @@
-[![Verify](https://github.com/@nvnh/clock/actions/workflows/verify.yml/badge.svg)](https://github.com/@nvnh/clock/actions/workflows/verify.yml)
+[![Verify](https://github.com/Nivani/clock/actions/workflows/verify.yml/badge.svg)](https://github.com/Nivani/clock/actions/workflows/verify.yml)
 
 `@nvnh/clock` is a small library without dependencies for mocking time in Javascript. It's inspired by [this Go clock package](https://pkg.go.dev/github.com/facebookgo/clock).
 
@@ -22,12 +22,6 @@ export interface Clock {
 * Replace `Clock` by `WarpClock` in your application to time travel and speed up or slow down time.
 
 # Getting started
-
-## Installation
-
-```
-npm install @nvnh/clock
-```
 
 ## Get the current date
 
