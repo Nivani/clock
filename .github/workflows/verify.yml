@@ -4,7 +4,7 @@ on: push
 
 jobs:
   verify:
-    name: ✔ Verify
+    name: Verify
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
