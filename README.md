@@ -19,7 +19,7 @@ export interface Clock {
 
 * Use `Clock` in your application for default behavior.
 * Use `MockClock` in tests to have complete control over time.
-* Replace `Clock` by `WarpClock` in your application to see how your application would behave at a different point in time. You can time travel and speed up or slow down time. Useful for debugging time-related problems, eg. using your application around midnight, year changes or leap years.
+* Replace `Clock` by `WarpClock` in your application to see how your application would behave at a different point in time. You can time travel and speed up or slow down time. Useful for debugging time-related problems, eg. using your application around midnight, year changes, leap years or use of `setTimeout()` that would let you wait a long time.
 
 # Getting started
 
