@@ -19,7 +19,7 @@ export interface Clock {
 
 * Use `Clock` in your application for default behavior.
 * Use `MockClock` in tests to have complete control over time.
-* Replace `Clock` by `WarpClock` in your application to time travel and speed up or slow down time.
+* Replace `Clock` by `WarpClock` in your application to see how your application would behave at a different point in time. You can time travel and speed up or slow down time. Useful for debugging time-related problems, eg. using your application around midnight, year changes or leap years.
 
 # Getting started
 
@@ -51,6 +51,6 @@ mockClock.add(2000);
 console.log(mockClock.newDate().toISOString()) // 2030-11-24T08:30:27.000Z
 // move time ahead to the specified time
 mockClock.goTo("2030-11-25T07:30:00Z");
-// newDate() returns the updated date & time
+// newDate() returns the new date & time
 console.log(mockClock.newDate().toISOString()) // 2030-11-25T07:30:00.000Z
 ```

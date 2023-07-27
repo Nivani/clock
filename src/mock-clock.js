@@ -76,7 +76,7 @@ export function createMockClock(initial) {
       count++;
       if (count >= MAX_INTERVAL_CALLBACKS) {
         throw new Error(
-          `Stopped calling setInterval() callbacks at ${count}. Did you move time foward by too much?`,
+          `Stopped calling setInterval() callbacks at ${count}. Did you move time forward by too much?`,
         );
       }
     }
