@@ -1,9 +1,12 @@
 import defaultClock from "../clock";
 
+// export a lastWeek() function, injected with the default clock.
+// This allows you to import lastWeek from "..../last-week" like you are used to
 const lastWeek = createLastWeek(defaultClock);
-
 export default lastWeek;
 
+// Use a factory function as a simple dependency injection mechanism
+// This allows you to write tests that verify the behavior at different points in time, see ./last-week.test.js
 export function createLastWeek(clock) {
   return function lastWeek() {
     const currentDate = clock.newDate();

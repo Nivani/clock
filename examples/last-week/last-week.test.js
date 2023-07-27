@@ -13,6 +13,14 @@ describe("lastWeek()", () => {
       },
     },
     {
+      description: "on a sunday",
+      date: new Date(2023, 6, 23, 9, 35, 20, 0),
+      expectedResult: {
+        from: new Date(2023, 6, 10, 0, 0, 0, 0),
+        to: new Date(2023, 6, 16, 23, 59, 59, 999),
+      },
+    },
+    {
       description: "change of month",
       date: new Date(2023, 6, 3, 9, 35, 20, 0),
       expectedResult: {

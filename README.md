@@ -1,8 +1,8 @@
 [![Verify](https://github.com/Nivani/clock/actions/workflows/verify.yml/badge.svg)](https://github.com/Nivani/clock/actions/workflows/verify.yml)
 
-`@nvnh/clock` is a small library without dependencies for mocking time in Javascript. It's inspired by [this Go clock package](https://pkg.go.dev/github.com/facebookgo/clock).
+`@nvnh/clock` is a small library without dependencies for mocking time in Javascript. It's inspired by [this clock package for Go](https://pkg.go.dev/github.com/facebookgo/clock).
 
-It resembles Javascript's Date & Time interface as closely as possible, so you can easily replace it in your existing code. 
+The goal is to resemble Javascript's Date & Time interface as closely as possible, so you can easily replace it in your existing code. 
 
 ```Typescript
 export interface Clock {
@@ -54,3 +54,17 @@ mockClock.goTo("2030-11-25T07:30:00Z");
 // newDate() returns the new date & time
 console.log(mockClock.newDate().toISOString()) // 2030-11-25T07:30:00.000Z
 ```
+
+# Example
+
+## Last week
+
+The last week example implements a function with signature:
+
+`lastWeek(): { from: Date, to: Date }`
+
+Where:
+* `from` is a Javascript date representing monday 00:00:00 of the previous week.
+* `to` is a Javascript date representing sunday 23:59:59 of the previous week.
+
+[The code is documented](./examples/last-week/last-week.js) and shows how you can use `@nvnh/clock` in your own code.
