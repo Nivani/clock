@@ -26,5 +26,8 @@
     "type": "git",
     "url": "git+https://github.com/Nivani/clock.git"
   },
-  "homepage": "https://github.com/Nivani/clock#readme"
+  "homepage": "https://github.com/Nivani/clock#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
