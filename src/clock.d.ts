@@ -1,3 +1,5 @@
+export default Clock;
+
 export function createClock(): Clock;
 
 export interface Clock {

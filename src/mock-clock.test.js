@@ -40,14 +40,13 @@ describe("MockClock", () => {
     });
   });
 
-  [
-    undefined,
-    "weird string that's not a date",
-    {},
-    () => {},
-  ].forEach(invalidArg => {
-    test(`create instance with invalid argument [${invalidArg}] throws an error`, () => {
-      expect(() => createMockClock(invalidArg)).toThrowError(/invalid initial value/);
-    });
-  });
+  [undefined, "weird string that's not a date", {}, () => {}].forEach(
+    (invalidArg) => {
+      test(`create instance with invalid argument [${invalidArg}] throws an error`, () => {
+        expect(() => createMockClock(invalidArg)).toThrowError(
+          /invalid initial value/,
+        );
+      });
+    },
+  );
 });

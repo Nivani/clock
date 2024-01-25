@@ -1,3 +1,5 @@
+export default createClock();
+
 export function createClock() {
   return {
     now() {

@@ -4,7 +4,9 @@ export function createMockClock(initial) {
   let currentTime = new Date(initial).getTime();
 
   if (Number.isNaN(currentTime)) {
-    throw new Error(`createMockClock() received invalid initial value: [${initial}]`)
+    throw new Error(
+      `createMockClock() received invalid initial value: [${initial}]`,
+    );
   }
 
   let idCounter = 0;
