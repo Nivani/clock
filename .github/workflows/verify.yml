@@ -12,9 +12,9 @@ jobs:
     env:
       TZ: ${{ matrix.timezone }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@main
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@main
     - name: npm ci
       run: npm ci
     - name: npm run verify
