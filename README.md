@@ -23,6 +23,10 @@ export interface Clock {
 
 # Getting started
 
+## Installation
+
+`npm install @nvnh/clock`
+
 ## Get the current date
 
 ```Javascript
