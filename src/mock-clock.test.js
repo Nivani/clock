@@ -39,4 +39,15 @@ describe("MockClock", () => {
       expect(() => clock.goTo("2023-04-30T21:00:00Z")).toThrow();
     });
   });
+
+  [
+    undefined,
+    "weird string that's not a date",
+    {},
+    () => {},
+  ].forEach(invalidArg => {
+    test(`create instance with invalid argument [${invalidArg}] throws an error`, () => {
+      expect(() => createMockClock(invalidArg)).toThrowError(/invalid initial value/);
+    });
+  });
 });

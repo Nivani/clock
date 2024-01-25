@@ -2,6 +2,11 @@ const MAX_INTERVAL_CALLBACKS = 10000;
 
 export function createMockClock(initial) {
   let currentTime = new Date(initial).getTime();
+
+  if (Number.isNaN(currentTime)) {
+    throw new Error(`createMockClock() received invalid initial value: [${initial}]`)
+  }
+
   let idCounter = 0;
   let timeouts = [];
   let intervals = [];
