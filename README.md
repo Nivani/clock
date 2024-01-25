@@ -30,10 +30,9 @@ export interface Clock {
 ## Get the current date
 
 ```Javascript
-import { createClock } from "@nvnh/clock/clock";
+// Import default clock instance
+import clock from "@nvnh/clock/clock";
 
-// Create a clock instance
-const clock = createClock();
 // use it just like Javascript's Date
 console.log(clock.newDate().toISOString()); // eg. 2023-07-12T15:15:21.376Z
 // will have the same output as

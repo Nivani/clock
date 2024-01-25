@@ -1,8 +1,8 @@
-import { createClock } from "src/clock";
+import clock from "src/clock";
 // import { createWarpClock } from "src/warp-clock";
 
-// Export a single clock instance to use in your application
-export default createClock();
+// Export the default clock instance to use in your application
+export default clock;
 
 // If you want to debug time-related problems, replace the default clock with a WarpClock
 // export default createWarpClock({
