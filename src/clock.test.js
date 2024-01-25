@@ -2,6 +2,11 @@ import { describe, test, expect, vi } from "vitest";
 import clock from "./clock";
 
 describe("RealClock", () => {
+  test(".newDate() returns the current date", () => {
+    const diff = Math.abs(clock.newDate() - new Date());
+    expect(diff).toBeLessThan(5);
+  });
+
   test(".setTimeout() forwards parameters", async () => {
     const fn = vi.fn().mockName("callback");
     clock.setTimeout(fn, 20, "param1", 2);
@@ -17,6 +22,11 @@ describe("RealClock", () => {
     clock.clearInterval(intervalId);
 
     expect(fn).toHaveBeenCalledWith("param1", 2);
+  });
+
+  test(".newDate() with parameter should behave like new Date() with the same parameter", () => {
+    const timestamp = "2024-01-25T11:30:00Z";
+    expect(clock.newDate(timestamp)).toEqual(new Date(timestamp));
   });
 });
 

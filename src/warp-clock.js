@@ -9,8 +9,8 @@ export function createWarpClock({ speed = 1.0, initial } = {}) {
     now() {
       return now();
     },
-    newDate() {
-      return new Date(this.now());
+    newDate(...args) {
+      return args.length <= 0 ? new Date(this.now()) : new Date(...args);
     },
     setTimeout(callback, ms) {
       return setTimeout(callback, ms / speed);

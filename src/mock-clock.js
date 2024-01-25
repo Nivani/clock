@@ -17,8 +17,8 @@ export function createMockClock(initial) {
     now() {
       return currentTime;
     },
-    newDate() {
-      return new Date(currentTime);
+    newDate(value = currentTime) {
+      return new Date(value);
     },
     setTimeout(callback, ms, ...args) {
       const id = idCounter++;

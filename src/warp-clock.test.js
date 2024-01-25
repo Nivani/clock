@@ -18,4 +18,10 @@ describe("WarpClock", () => {
       expect(warpClock.newDate().getTime()).toBeCloseTo(initialTime + 600, -2);
     });
   });
+
+  test(".newDate() with parameter should behave like new Date() with the same parameter", () => {
+    const clock = createWarpClock({ speed: 1.2 });
+    const timestamp = "2024-01-25T11:30:00Z";
+    expect(clock.newDate(timestamp)).toEqual(new Date(timestamp));
+  });
 });

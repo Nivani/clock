@@ -5,8 +5,8 @@ export function createClock() {
     now() {
       return Date.now();
     },
-    newDate() {
-      return new Date(this.now());
+    newDate(...args) {
+      return args.length <= 0 ? new Date() : new Date(...args);
     },
     setTimeout(callback, ms, ...args) {
       return setTimeout(callback, ms, ...args);

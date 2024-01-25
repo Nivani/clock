@@ -49,4 +49,10 @@ describe("MockClock", () => {
       });
     },
   );
+
+  test(".newDate() with parameter should behave like new Date() with the same parameter", () => {
+    const clock = createMockClock("2023-12-05T10:25:00Z");
+    const timestamp = "2024-01-25T11:30:00Z";
+    expect(clock.newDate(timestamp)).toEqual(new Date(timestamp));
+  });
 });
