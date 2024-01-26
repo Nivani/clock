@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { createMockClock } from "src/mock-clock";
+import { createMockClock } from "mock";
 import { createLastWeek } from "./last-week";
 
 describe("lastWeek()", () => {

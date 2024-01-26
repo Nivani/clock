@@ -3,16 +3,18 @@
   "version": "0.2.1",
   "description": "A small library without dependencies for mocking time in Javascript",
   "files": [
-    "src/**/*"
+    "src/**/*",
+    "index.js",
+    "real.js",
+    "mock.js",
+    "warp.js"
   ],
-  "exports": {
-    "./": "./src/"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "vitest",
+    "verify": "npm run lint && npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
-    "check-format": "prettier --check ./src",
-    "verify": "npm run lint && npm run check-format && npm test -- --run"
+    "check-format": "prettier --check ./src"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",

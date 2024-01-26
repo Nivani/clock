@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
-import clock from "./clock";
+import clock from "./real-clock";
 
 describe("RealClock", () => {
   test(".newDate() returns the current date", () => {

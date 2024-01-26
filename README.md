@@ -31,7 +31,7 @@ export interface Clock {
 
 ```Javascript
 // Import default clock instance
-import clock from "@nvnh/clock/clock";
+import clock from "@nvnh/clock";
 
 // use it just like Javascript's Date
 console.log(clock.newDate().toISOString()); // eg. 2023-07-12T15:15:21.376Z
@@ -42,7 +42,7 @@ console.log(new Date().toISOString()); // eg. 2023-07-12T15:15:21.376Z
 ## Use MockClock
 
 ```Javascript
-import { createMockClock } from "@nvnh/clock/mock-clock";
+import { createMockClock } from "@nvnh/clock/mock";
 
 // Create a mock clock instance
 const mockClock = createMockClock("2030-11-24T08:30:25Z");

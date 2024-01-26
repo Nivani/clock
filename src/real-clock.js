@@ -1,6 +1,6 @@
-export default createClock();
+export default createRealClock();
 
-export function createClock() {
+export function createRealClock() {
   return {
     now() {
       return Date.now();
