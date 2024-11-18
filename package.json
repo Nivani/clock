@@ -11,18 +11,18 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "verify": "npm run lint && npm run check-format && npm test -- --run",
+    "test": "vitest --coverage",
+    "verify": "npm run lint && npm run check-format && npm test -- --run --coverage",
     "lint": "eslint ./src",
     "check-format": "prettier --check ./src"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",
   "devDependencies": {
-    "@vitest/coverage-istanbul": "^0.33.0",
+    "@vitest/coverage-v8": "^2.1.5",
     "eslint": "^8.44.0",
-    "prettier": "^3.0.0",
-    "vitest": "^0.33.0"
+    "prettier": "^3.3.3",
+    "vitest": "^2.1.5"
   },
   "repository": {
     "type": "git",
