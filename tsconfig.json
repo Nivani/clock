@@ -21,5 +21,10 @@
     "sourceMap": true,
 
     "declaration": true,
+
+    "paths": {
+      "@nvnh/clock": ["./src/index.ts"],
+      "@nvnh/clock/*": ["./src/*"]
+    }
   }
 }

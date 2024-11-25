@@ -1,20 +1,14 @@
+import type { Clock } from "@nvnh/clock";
 import defaultClock from "../clock.js";
-import type { Clock } from "../../clock.js";
-
-export interface DateRange {
-  from: Date;
-  to: Date;
-}
 
 // export a lastWeek() function, injected with the default clock.
 // This allows you to import lastWeek from "..../last-week" like you are used to
-const lastWeek = createLastWeek(defaultClock);
-export default lastWeek;
+export default createLastWeek(defaultClock);
 
 // Use a factory function as a simple dependency injection mechanism
 // This allows you to write tests that verify the behavior at different points in time, see ./last-week.test.js
-export function createLastWeek(clock: Clock): () => DateRange {
-  return function lastWeek() {
+export function createLastWeek(clock: Clock): () => { from: Date; to: Date } {
+  return function lastWeek(): { from: Date; to: Date } {
     const currentDate = clock.newDate();
     const sevenDaysAgo = new Date(
       currentDate.getFullYear(),
