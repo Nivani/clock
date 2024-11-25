@@ -1,4 +1,4 @@
-import defaultClock from "../clock";
+import defaultClock from "../clock.js";
 
 // export a lastWeek() function, injected with the default clock.
 // This allows you to import lastWeek from "..../last-week" like you are used to

@@ -7,6 +7,7 @@ describe("MockClock", () => {
       const clock = createMockClock("2023-04-08T23:00:00Z");
 
       const fn = vi.fn().mockName("callback");
+      clock.abc = 123;
       clock.setTimeout(fn, 250);
 
       clock.add(249);

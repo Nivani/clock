@@ -2,17 +2,20 @@
   "name": "@nvnh/clock",
   "version": "1.0.0",
   "description": "A small library without dependencies for mocking time in Javascript",
-  "files": [
-    "src/**/*",
-    "index.js",
-    "real.js",
-    "mock.js",
-    "warp.js"
+  "keywords": [
+    "date",
+    "time",
+    "mock",
+    "clock"
   ],
-  "main": "index.js",
+  "homepage": "https://github.com/Nivani/clock#readme",
+  "bugs": {
+    "url": "https://github.com/Nivani/clock/issues"
+  },
   "scripts": {
+    "build": "tsc",
     "test": "vitest --coverage",
-    "verify": "npm run lint && npm run check-format && npm test -- --run --coverage",
+    "verify": "npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
     "check-format": "prettier --check ./src"
   },
@@ -20,15 +23,19 @@
   "license": "MIT",
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.5",
-    "eslint": "^8.44.0",
     "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
     "vitest": "^2.1.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nivani/clock.git"
   },
-  "homepage": "https://github.com/Nivani/clock#readme",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "type": "module",
   "publishConfig": {
     "access": "public"
   }
