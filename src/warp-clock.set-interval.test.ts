@@ -1,10 +1,10 @@
 import { describe, test, afterEach, expect, vi } from "vitest";
-import { createWarpClock } from "./warp-clock";
-import timeout from "./timeout";
+import { createWarpClock } from "./warp-clock.js";
+import timeout from "./timeout.js";
 
 describe("WarpClock", () => {
   describe("setInterval()", () => {
-    const intervalsToClear = [];
+    const intervalsToClear: number[] = [];
 
     afterEach(() => {
       intervalsToClear.forEach(clearInterval);

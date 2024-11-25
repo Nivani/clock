@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
-import { createWarpClock } from "./warp-clock";
-import timeout from "./timeout";
+import { createWarpClock } from "./warp-clock.js";
+import timeout from "./timeout.js";
 
 describe("WarpClock", () => {
   describe("setTimeout()", () => {

@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
-import { createMockClock } from "./mock-clock";
+import { createMockClock } from "./mock-clock.js";
 
 describe("MockClock", () => {
   describe("setInterval()", () => {
@@ -64,7 +64,9 @@ describe("MockClock", () => {
 
       expect(fn1).toHaveBeenCalledTimes(2);
       expect(fn2).toHaveBeenCalledTimes(3);
-      expect(fn1.mock.results[1].value).toBeLessThan(fn2.mock.results[2].value);
+      expect(fn1.mock.results[1]?.value).toBeLessThan(
+        fn2.mock.results[2]?.value,
+      );
     });
 
     test("stops running callback when interval is cleared", () => {

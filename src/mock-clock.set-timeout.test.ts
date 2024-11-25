@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
-import { createMockClock } from "./mock-clock";
+import { createMockClock } from "./mock-clock.js";
 
 describe("MockClock", () => {
   describe("setTimeout()", () => {
@@ -41,7 +41,9 @@ describe("MockClock", () => {
 
       expect(fn1).toHaveBeenCalledTimes(1);
       expect(fn2).toHaveBeenCalledTimes(1);
-      expect(fn2.mock.results[0].value).toBeLessThan(fn1.mock.results[0].value);
+      expect(fn2.mock.results[0]?.value).toBeLessThan(
+        fn1.mock.results[0]?.value,
+      );
     });
 
     test("doesn't run callback when timeout is cleared", () => {

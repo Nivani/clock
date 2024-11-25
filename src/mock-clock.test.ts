@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
-import { createMockClock } from "./mock-clock";
+import { createMockClock } from "./mock-clock.js";
 
 describe("MockClock", () => {
   describe("newDate(), now()", () => {
@@ -43,7 +43,7 @@ describe("MockClock", () => {
   [undefined, "weird string that's not a date", {}, () => {}].forEach(
     (invalidArg) => {
       test(`create instance with invalid argument [${invalidArg}] throws an error`, () => {
-        expect(() => createMockClock(invalidArg)).toThrowError(
+        expect(() => createMockClock(invalidArg as any)).toThrowError(
           /invalid initial value/,
         );
       });

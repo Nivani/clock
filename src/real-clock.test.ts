@@ -1,9 +1,9 @@
 import { describe, test, expect, vi } from "vitest";
-import clock from "./real-clock";
+import clock from "./real-clock.js";
 
 describe("RealClock", () => {
   test(".newDate() returns the current date", () => {
-    const diff = Math.abs(clock.newDate() - new Date());
+    const diff = Math.abs(clock.newDate().getTime() - new Date().getTime());
     expect(diff).toBeLessThan(5);
   });
 
@@ -30,6 +30,6 @@ describe("RealClock", () => {
   });
 });
 
-async function waitMs(ms) {
+async function waitMs(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
