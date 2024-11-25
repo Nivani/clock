@@ -43,7 +43,6 @@ export function createMockClock(initial: number | string | Date): MockClock {
       return new Date(value);
     },
     setTimeout(handler: Function, timeout: number = 0, ...args: any[]): number {
-      (timeouts as any).abc = (this as any).abc;
       const id = idCounter++;
       const triggerTime = currentTime + timeout;
       const insertIndex = timeouts.findIndex(

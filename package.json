@@ -15,16 +15,20 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest --coverage",
-    "verify": "npm run check-format && npm test -- --run",
+    "verify": "npm run lint && npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
     "check-format": "prettier --check ./src"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@vitest/coverage-v8": "^2.1.5",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
     "vitest": "^2.1.5"
   },
   "repository": {
