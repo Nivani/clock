@@ -21,3 +21,5 @@ jobs:
       run: |
         echo "Verifying in timezone '$TZ'"
         npm run verify
+    - name: npm run build
+      run: npm run build
