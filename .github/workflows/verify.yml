@@ -17,9 +17,11 @@ jobs:
       uses: actions/setup-node@main
     - name: npm ci
       run: npm ci
-    - name: npm run verify
+    - name: Verify
       run: |
         echo "Verifying in timezone '$TZ'"
         npm run verify
-    - name: npm run build
+    - name: Build
       run: npm run build
+    - name: Check exports
+      run: npm run check-exports

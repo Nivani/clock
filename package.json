@@ -17,11 +17,13 @@
     "test": "vitest --coverage",
     "verify": "npm run lint && npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
-    "check-format": "prettier --check ./src"
+    "check-format": "prettier --check ./src",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.0",
     "@eslint/js": "^9.15.0",
     "@vitest/coverage-v8": "^2.1.5",
     "eslint": "^9.15.0",
