@@ -1,6 +1,6 @@
 import { describe, test, expect } from "vitest";
-import { createMockClock } from "src/mock-clock";
-import { createLastWeek } from "./last-week";
+import { createMockClock } from "../../mock-clock.js";
+import { createLastWeek } from "./last-week.js";
 
 describe("lastWeek()", () => {
   [

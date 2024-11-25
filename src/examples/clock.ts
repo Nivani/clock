@@ -1,4 +1,4 @@
-import clock from "../src/index.js";
+import clock from "../index.js";
 // import { createWarpClock } from "warp";
 
 // Export the default clock instance to use in your application
