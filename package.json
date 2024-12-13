@@ -18,7 +18,7 @@
     "verify": "npm run lint && npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
     "check-format": "prettier --check ./src",
-    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
+    "check-exports": "attw --pack . --ignore-rules no-resolution"
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",
@@ -41,7 +41,37 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "default": "./dist/index.js"
+    },
+    "./real": {
+      "import": {
+        "types": "./dist/real-clock.d.ts",
+        "default": "./dist/real-clock.js"
+      },
+      "default": "./dist/real-clock.js"
+    },
+    "./mock": {
+      "import": {
+        "types": "./dist/mock-clock.d.ts",
+        "default": "./dist/mock-clock.js"
+      },
+      "default": "./dist/mock-clock.js"
+    },
+    "./warp": {
+      "import": {
+        "types": "./dist/warp-clock.d.ts",
+        "default": "./dist/warp-clock.js"
+      },
+      "default": "./dist/warp-clock.js"
+    }
+  },
   "type": "module",
   "publishConfig": {
     "access": "public"

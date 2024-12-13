@@ -1,5 +1,5 @@
 import clock from "@nvnh/clock";
-// import { createWarpClock } from "@nvnh/clock/warp-clock.js";
+// import { createWarpClock } from "@nvnh/clock/warp";
 
 // Export the default clock instance to use in your application
 export default clock;
