@@ -18,7 +18,7 @@
     "verify": "npm run lint && npm run check-format && npm test -- --run",
     "lint": "eslint ./src",
     "check-format": "prettier --check ./src",
-    "check-exports": "attw --pack . --ignore-rules no-resolution"
+    "check-exports": "attw --pack  ."
   },
   "author": "Nick Van Nieuwenhuyse",
   "license": "MIT",
