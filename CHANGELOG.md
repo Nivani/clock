@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.1.1
+
+### Fixed
+
+- Improved documentation
+
 ## v1.1.0
 
 `v1.1.0` is a port to Typescript of the original Javascript code. The behavior of the code and the way it is imported has not changed.
