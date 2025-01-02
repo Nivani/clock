@@ -99,7 +99,7 @@ Where:
 * `from` is a Javascript date representing monday 00:00:00 of the previous week.
 * `to` is a Javascript date representing sunday 23:59:59 of the previous week.
 
-[The code is documented](./examples/last-week/last-week.js) and shows how you can use `@nvnh/clock` in your own code.
+[The code is documented](./src/examples/last-week/last-week.ts) and shows how you can use `@nvnh/clock` in your own code.
 
 # FAQ
 
