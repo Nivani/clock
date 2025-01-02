@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Everything is exported from the root, so you can now import `import { createMockClock, createWarpClock } from "@nvnh/clock";` instead of `import { createMockClock } from "@nvnh/clock/mock` or `import { createWarpClock } from "@nvnh/clock/warp`. You can still do the latter if you prefer importing only what you need.
+- Everything is now exported from the root, so you can import `import { createMockClock, createWarpClock } from "@nvnh/clock";` instead of `import { createMockClock } from "@nvnh/clock/mock` or `import { createWarpClock } from "@nvnh/clock/warp`. You can still do the latter if you prefer importing only what you need.
 
 ### Fixed
 
